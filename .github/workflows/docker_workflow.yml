@@ -6,7 +6,7 @@ on:
       - main
   pull_request:
     branches:
-      - test
+      - main
 
 jobs:
   build:
@@ -30,7 +30,7 @@ jobs:
     strategy:
       matrix:
         python-version: ['3.8', '3.9', '3.10']
-    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main' || github.event_name == 'push'
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
